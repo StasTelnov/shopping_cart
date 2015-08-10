@@ -1,0 +1,29 @@
+%table.table
+  %thead
+    %tr
+      %th
+      %th Title
+      %th Quantity
+      %th The amount of goods
+      %th Discount
+      %th In total
+  %tfoot
+    %tr
+      %td
+      %td
+      %td
+      %td
+      %td
+      %td= humanized_money_with_symbol(current_cart.total_price_with_discount)
+  %tbody
+    - current_cart.line_items.order(:id).each do |line_item|
+      %tr
+        %td
+          = link_to product_path(line_item.product) do
+            = image_tag(line_item.product.image_url, :width => 50, :class => 'img-circle')
+        %td= line_item.product.title
+        %td= number_field_tag('quantity', line_item.quantity, :step => 1, :min => 1, :id => line_item.id, :data => {"class-binder" => 'LineItem'})
+        %td= "#{line_item.quantity} × #{humanized_money_with_symbol(line_item.product.price)} = #{humanized_money_with_symbol(line_item.total_price)}"
+        %td= "#{line_item.discount} %"
+        %td= humanized_money_with_symbol(line_item.total_price_with_discount)
+= button_to 'Empty cart', @cart, :method => :delete, :class => 'btn btn-danger', :data => {:confirm => "Are you sure?"}

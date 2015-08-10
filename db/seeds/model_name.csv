@@ -1,0 +1,11 @@
+name_en,code,practice_category_id
+"Criminal","criminal",1
+"Family","family",1
+"Employment","employment",1
+"Business","business",1
+"Tax","tax",2
+"Personal injury","personal_injury",2
+"Estate Planning","estate_planning",2
+"Intellectual Property","intellectual_property",2
+"Bankruptcy & Debt","bankruptcy_debt",2
+"Real Estate","real_estate",2

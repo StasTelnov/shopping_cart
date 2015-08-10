@@ -1,0 +1,3 @@
+= link_to  cart_path(current_cart) do
+  = "#{pluralize(current_cart.quantity, 'item')} |"
+  = current_cart_total_price_with_discount

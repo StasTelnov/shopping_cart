@@ -1,0 +1,6 @@
+= paginate @products
+- @products.each do |product|
+  = render product
+
+  %br
+= paginate @products
