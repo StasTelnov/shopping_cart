@@ -1,2 +1,4 @@
 #line-items
   = render current_cart
+= button_to 'Empty cart', current_cart, :method => :delete, :class => 'btn btn-danger', :data => {:confirm => "Are you sure?"}
+

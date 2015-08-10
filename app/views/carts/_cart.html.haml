@@ -26,4 +26,3 @@
         %td= "#{line_item.quantity} × #{humanized_money_with_symbol(line_item.product.price)} = #{humanized_money_with_symbol(line_item.total_price)}"
         %td= "#{line_item.discount} %"
         %td= humanized_money_with_symbol(line_item.total_price_with_discount)
-= button_to 'Empty cart', @cart, :method => :delete, :class => 'btn btn-danger', :data => {:confirm => "Are you sure?"}

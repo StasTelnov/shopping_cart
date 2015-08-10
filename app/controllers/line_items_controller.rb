@@ -6,7 +6,7 @@ class LineItemsController < ApplicationController
     @line_item = current_cart.add_product(product.id)
     respond_to do |format|
       if @line_item.save
-        format.js { @current_item = @line_item }
+        format.js
       else
         format.html { redirect_to(root_url, :error => @line_item.errors) }
       end
@@ -16,7 +16,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.js { @current_item = @line_item }
+        format.js
       else
         format.html { redirect_to(root_url, :error => @line_item.errors) }
       end
