@@ -13,13 +13,9 @@ require "csv"
 def get_from_file(model)
   file      = model.name.underscore
   file_path = Rails.root.join("db","seeds", "#{file}.csv").to_path
-  objects   = []
   CSV.foreach(file_path, { :headers => true }) do |row|
-    row         = row.to_hash
-    # row["code"] = row["name_en"].underscore unless row["code"]
-    objects << row
+    model.create_with(row.to_hash).find_or_create_by(:code => row.to_hash['code'])
   end
-  model.update_or_create!("code", objects, { :no_op_if_exist => true })
   puts "[#{model.name}] was populated"
 end
 
@@ -28,11 +24,9 @@ puts "======================================SEED DATA START POPULATED===========
 Rake::Task["demo:clear"].execute
 
 [
-  #model_name
+    #tabel_name
 ].map do |model|
   get_from_file(model)
 end
-
-# Rake::Task["system:user:create"].execute
 
 puts "======================================SEED DATA FINISH POPULATED============================================="
