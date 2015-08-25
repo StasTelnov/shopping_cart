@@ -23,8 +23,6 @@ module ShoppingCart
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.eager_load_paths += Dir["#{config.root}/app/models/seed_models/**/"]
-    config.autoload_paths   += Dir["#{config.root}/app/models/seed_models/**/"]
     config.autoload_paths   += Dir["#{config.root}/lib/**/"]
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

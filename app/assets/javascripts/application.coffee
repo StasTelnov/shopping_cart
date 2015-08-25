@@ -15,9 +15,8 @@
 #= require turbolinks
 #= require bootstrap-sprockets
 
-#= require_tree ./plugins
+#= require_tree ./templates
 #= require_tree ./core
-#= require_tree ./classes
 
 SCart.app ?= new SCart.Application
 SCart.app.start()

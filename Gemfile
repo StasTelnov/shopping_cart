@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', :group => :production
+
 gem 'rails', '4.2.3'                                      # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg'                                                  # Use postgresql as the database for Active Record
 gem 'sass-rails', '~> 5.0'                                # Use SCSS for stylesheets
@@ -20,10 +22,14 @@ gem 'factory_girl_rails'                                  # factory_girl is a fi
 gem 'money-rails'                                         # This library provides integration of money gem with Rails.
 gem 'kaminari'                                            # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 4
 gem 'kaminari-bootstrap'                                  # Basic Gem for quick default inclusion of Kaminari theme compatible with Twitter Bootstrap 2.0
+gem 'andand'                                              # If the result is nil, then the expression returns nil without throwing a NoMethodError.
+gem 'ejs'                                                 # EJS templates for JavaScript
 
 group :development, :test do
   gem 'byebug'                                            # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'web-console', '~> 2.0'                             # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'spring'                                            # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rspec-rails'                                     #rspec-rails is a testing framework for Rails 3.x and 4.x.
+  gem 'rspec-rails'                                       #rspec-rails is a testing framework for Rails 3.x and 4.x.
 end
+
+ruby '2.2.1'

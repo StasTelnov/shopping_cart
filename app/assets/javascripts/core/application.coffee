@@ -3,13 +3,10 @@ window.SCart.Classes  ?= {}
 
 class SCart.Application
   constructor: ->
+    @alert ?= new SCart.Classes.Alert
+    Turbolinks.ProgressBar ?= Turbolinks.enableProgressBar();
 
   start: =>
-    NProgress.configure({showSpinner: false})
-    $(document).on('page:fetch',   NProgress.start)
-    $(document).on('page:change',  NProgress.done)
-    $(document).on('page:restore', NProgress.remove)
-
     $(document).on('ready page:load', @afterRenderPage)
 
   afterRenderPage: =>

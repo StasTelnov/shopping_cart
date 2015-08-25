@@ -1,4 +1,4 @@
-class Product < Base::VersionModel
+class Product < ActiveRecord::Base
   monetize :price_cents
 
   has_many :line_items
@@ -12,7 +12,7 @@ class Product < Base::VersionModel
       if line_items.empty?
         true
       else
-        errors.add(:base, 'There is line item!')
+        errors.add(:classes, 'There is line item!')
         false
       end
     end
